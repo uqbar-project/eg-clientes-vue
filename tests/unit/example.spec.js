@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
-import axios from 'axios';
-import { MockCustomerService } from '../mocks/mockCustomerService';
+import MockCustomerService from '../mocks/mockCustomerService';
 import CustomerPage from '@/views/CustomerPage.vue';
+import axios from 'axios';
 describe('CustomerPage.vue', () => {
     beforeEach(() => jest.mock('axios'));
     it('renders customers lists', () => {

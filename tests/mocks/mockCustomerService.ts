@@ -1,6 +1,6 @@
 import Customer from '../../src/domain/customer'
 
-export class MockCustomerService {
+export default class MockCustomerService {
     customers = [
         new Customer('Brukman Hnos'),
         new Customer('Nestle'),

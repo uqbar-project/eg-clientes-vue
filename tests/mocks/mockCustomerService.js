@@ -1,5 +1,5 @@
 import Customer from '../../src/domain/customer';
-export class MockCustomerService {
+export default class MockCustomerService {
     constructor() {
         this.customers = [
             new Customer('Brukman Hnos'),
