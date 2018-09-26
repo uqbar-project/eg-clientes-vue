@@ -20,7 +20,7 @@
                 <th>Customers list</th>
                 </thead>
                 <tbody>
-                <tr v-for="(_customer, index) in customers" key="index">
+                <tr v-for="(_customer, index) in customers" :key="index">
                     <td>
                         {{_customer.name}}
                     </td>
@@ -37,7 +37,7 @@
 	import CustomerService from "../services/customer"; // @ is an alias to /src
 
 	@Component
-	export default class Home extends Vue {
+	export default class CustomerPage extends Vue {
 
 		customerService = new CustomerService()
 		customer = new Customer("")
