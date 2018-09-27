@@ -1,5 +1,9 @@
 # frontend
 
+Ejemplo de búsqueda y actualización de clientes.
+
+[![Build Status](https://www.travis-ci.org/uqbar-project/eg-clientes-vue.svg?branch=master)](https://www.travis-ci.org/uqbar-project/eg-clientes-vue)
+
 ## Project setup
 ```
 npm install
