@@ -1,13 +1,14 @@
 export default class Customer {
-	id : number = 0
-	name : string = ""
-	
-	constructor(name : string) {
-		this.name = name
-	}
-	
-	validate() {
-		if (!this.name) throw "Debe ingresar nombre"
-	}
-	
+  private id: number = 0
+  private name: string = ''
+
+  constructor(id: number, name: string) {
+	  this.id = id
+	  this.name = name
+  }
+
+  public validate() {
+    if (!this.name) { throw new Error('Debe ingresar nombre') }
+  }
+
 }

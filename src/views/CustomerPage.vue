@@ -21,7 +21,7 @@
                 </thead>
                 <tbody>
                 <tr v-for="(_customer, index) in customers" :key="index">
-                    <td>
+                    <td :id="'cust' + _customer.id">
                         {{_customer.name}}
                     </td>
                 </tr>
@@ -32,21 +32,21 @@
 </template>
 
 <script lang="ts">
-	import {Component, Vue} from 'vue-property-decorator';
-	import Customer from "../domain/customer";
-	import CustomerService from "../services/customer"; // @ is an alias to /src
+import {Component, Vue} from 'vue-property-decorator'
+import Customer from '../domain/customer'
+import CustomerService from '../services/customer' // @ is an alias to /src
 
-	@Component
-	export default class CustomerPage extends Vue {
+@Component
+export default class CustomerPage extends Vue {
 
-		customerService = new CustomerService()
-		customer = new Customer("")
-		customers = []
+  public customerService = new CustomerService()
+  public customer = new Customer(0, '')
+  public customers = []
 
-		mounted() {
-			this.customerService.findAll((customers: any) => {
-				this.customers = customers.map((_customer: any) => new Customer(_customer.name))
-			})
-		}
-	}
+  public mounted() {
+    this.customerService.findAll((customers: any) => {
+      this.customers = customers.map((_customer: any) => new Customer(_customer.id, _customer.name))
+    })
+  }
+}
 </script>
