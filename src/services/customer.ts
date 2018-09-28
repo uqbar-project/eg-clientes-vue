@@ -1,4 +1,5 @@
 import axios from 'axios'
+import errorHandler from "@/components/errorHandler";
 
 export class HttpStatus {
 	public static OK: number = 200
@@ -8,16 +9,14 @@ export class HttpStatus {
 export default class CustomerService {
 	
 	public findAll(callback: any) {
-		axios.get('http://localhost:4000/clientes/')
+		axios.get('http://localhost:4000/customers')
 			.then((response: any) => {
 				if (response.status === HttpStatus.OK) {
 					callback(response.data)
 				} else {
-					// callbackError(response.statusText)
+					errorHandler(response.data)
 				}
 			})
-			.catch((error) => {
-				throw new Error('Could not get customers list: ' + error.message + ' ' + axios)
-			})
+			.catch(errorHandler)
 	}
 }

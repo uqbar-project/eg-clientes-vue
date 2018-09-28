@@ -6,6 +6,10 @@ import 'buefy/dist/buefy.css'
 
 Vue.use(Buefy)
 Vue.config.productionTip = false
+Vue.config.errorHandler = ((err: Error, vm: Vue, info: string) => {
+  console.log("se pudrio mal")
+  console.log("Chau", err)
+})
 
 new Vue({
   router,
