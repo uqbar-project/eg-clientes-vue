@@ -3,12 +3,12 @@ import App from './App.vue'
 import router from './router'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
+import errorHandler from '@/components/errorHandler'
 
 Vue.use(Buefy)
 Vue.config.productionTip = false
 Vue.config.errorHandler = ((err: Error, vm: Vue, info: string) => {
-  console.log("se pudrio mal")
-  console.log("Chau", err)
+  errorHandler(err)
 })
 
 new Vue({
