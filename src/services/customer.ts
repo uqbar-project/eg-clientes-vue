@@ -17,6 +17,8 @@ export default class CustomerService {
 					errorHandler(response.data)
 				}
 			})
-			.catch(errorHandler)
+			.catch((err) => {
+                errorHandler(err)
+            })
 	}
 }
