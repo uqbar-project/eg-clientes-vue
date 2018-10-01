@@ -34,19 +34,18 @@
 <script lang="ts">
 	import {Component, Vue} from 'vue-property-decorator'
 	import Customer from '../domain/customer'
-	import CustomerService from '../services/customer' // @ is an alias to /src
+    import store from '../store/store'; // @ is an alias to /src
+    import { mapState } from 'vuex'
 
-	@Component
+    @Component({
+        computed: mapState([ 'customers' ])
+    })
 	export default class CustomerPage extends Vue {
 
-		public customerService = new CustomerService()
 		public customer = new Customer(0, '')
-		public customers = []
 
 		public mounted() {
-			this.customerService.findAll((customers: any) => {
-				this.customers = customers.map((_customer: any) => new Customer(_customer.id, _customer.name))
-			})
+		    store.dispatch('populateCustomers')
 		}
 	}
 </script>
